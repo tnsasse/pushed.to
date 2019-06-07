@@ -1,5 +1,7 @@
 module.exports = {
 
+    host: '',
+
     github: {
         api_url: 'https://api.github.com',
         user: 'cokeSchlumpf',

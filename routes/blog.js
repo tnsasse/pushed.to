@@ -1,14 +1,14 @@
-var config = require('../config');
-var github = require('../core/github');
-var express = require('express');
+const config = require('../config');
+const github = require('../core/github');
+const express = require('express');
 
-var router = express.Router();
+const router = express.Router();
 
-router.get('/:user/:project', function(req, res, next) {
+router.get('/:user/:project', (req, res, next) => {
   res.send('show posts ' + req.params.user + "/" + req.params.project);
 });
 
-router.use('/:user/:project', function(req, res, next) {
+router.use('/:user/:project', (req, res, next) => {
   github
     .getRepoTree(req.params.user, req.params.project)
     .then(commits => {

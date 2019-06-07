@@ -1,12 +1,12 @@
-var graphql = require('graphql');
+const graphql = require('graphql');
 
-var List = graphql.GraphQLList;
-var ObjectType = graphql.GraphQLObjectType;
-var IntType = graphql.GraphQLInt;
-var StringType = graphql.GraphQLString;
-var NonNull = graphql.GraphQLNonNull;
+const List = graphql.GraphQLList;
+const ObjectType = graphql.GraphQLObjectType;
+const IntType = graphql.GraphQLInt;
+const StringType = graphql.GraphQLString;
+const NonNull = graphql.GraphQLNonNull;
 
-var PostType = new ObjectType({
+const PostType = new ObjectType({
   name: 'PostItem',
   fields: {
     key: {
@@ -39,7 +39,7 @@ var PostType = new ObjectType({
   },
 });
 
-var PostItemsType = new ObjectType({
+const PostItemsType = new ObjectType({
   name: 'PostItems',
 
   fields: {

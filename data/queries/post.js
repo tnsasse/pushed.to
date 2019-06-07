@@ -1,14 +1,17 @@
-'use strict';
+const GraphQL = require('graphql');
+const PostItemType = require('../types/PostType').PostItemsType;
+const GitHub = require('../../core/github');
 
-import _ from 'lodash';
-import { GraphQLList as List, GraphQLString as StringType, GraphQLNonNull as NonNull } from 'graphql';
+const StringType = GraphQL.GraphQLString;
+const NonNull = GraphQL.GraphQLNonNull;
 
-import { getFile } from '../../core/github';
-import { renderPost } from '../../core/posts';
-import PostItemType from '../types/PostType';
+const getFile = GitHub.getFile;
+const renderPost = require('../../core/posts').renderPost;
 
 const post = {
+
   type: PostItemType,
+
   args: {
     owner: {
       type: new NonNull(StringType)
@@ -20,11 +23,13 @@ const post = {
       type: new NonNull(StringType)
     },
   },
+
   resolve(request, {owner, repo, key}) {
     return getFile(owner, repo, key).then(post => {
       return renderPost(owner, repo, post);
     });
   }
+
 };
 
-export default post;
+module.exports = post;

@@ -1,8 +1,8 @@
-var graphql = require('graphql');
+const graphql = require('graphql');
 
-var ObjectType = graphql.GraphQLObjectType;
-var StringType = graphql.GraphQLString;
-var NonNull = graphql.GraphQLNonNull;
+const ObjectType = graphql.GraphQLObjectType;
+const StringType = graphql.GraphQLString;
+const NonNull = graphql.GraphQLNonNull;
 
 const RenderType = new ObjectType({
   name: 'Render',

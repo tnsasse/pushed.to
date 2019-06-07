@@ -1,13 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const expressGraphQL = require('express-graphql');
 
-var indexRouter = require('./routes/index');
-var blogRouter = require('./routes/blog');
+const indexRouter = require('./routes/index');
+const blogRouter = require('./routes/blog');
 
-var app = express();
+const schema = require('./data/schema');
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -17,6 +20,18 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// graphql API
+app.use('/graphql', expressGraphQL(req => ({
+  schema,
+  graphiql: true,
+  rootValue: {
+    request: req
+  },
+  pretty: process.env.NODE_ENV !== 'production',
+})));
+
+// static content
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

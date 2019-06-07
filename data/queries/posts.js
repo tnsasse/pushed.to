@@ -1,15 +1,18 @@
-'use strict';
-import _ from 'lodash';
-import Moment from 'moment';
-import Promise from 'bluebird';
-import { GraphQLList as List, GraphQLNonNull as NonNull, GraphQLString as StringType, GraphQLInt as IntType } from 'graphql';
+const _ = require('lodash');
+const GraphQL = require('graphql');
+const PostItemsType = require('../types/PostType').PostItemsType;
+const GitHub = require('../../core/github');
 
-import { getRepoTree, getTextFile } from '../../core/github';
-import { renderPost } from '../../core/posts';
-import { PostItemsType } from '../types/PostType';
-import { host } from '../../config';
+const IntType = GraphQL.GraphQLInt;
+const StringType = GraphQL.GraphQLString;
+const NonNull = GraphQL.GraphQLNonNull;
 
-const events = {
+const getRepoTree = GitHub.getRepoTree;
+const getTextFile = GitHub.getTextFile;
+
+const renderPost = require('../../core/posts').renderPost;
+
+const posts = {
   type: PostItemsType,
 
   args: {
@@ -46,12 +49,12 @@ const events = {
           posts: _.slice(_.orderBy(posts, ['publishedTime'], ['desc']), (page - 1) * ppp, page * ppp),
           pages: pages,
           page: page,
-          nextUrl: page < pages && `http://${host}/${owner}/${repo}/history/${page + 1}`,
-          prevUrl: page > 1 && `http://${host}/${owner}/${repo}/history/${page - 1}`
+          nextUrl: page < pages && `/${owner}/${repo}/history/${page + 1}`,
+          prevUrl: page > 1 && `/${owner}/${repo}/history/${page - 1}`
         }
       });
     });
   }
 };
 
-export default events;
+module.exports = posts;

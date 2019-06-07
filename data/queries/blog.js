@@ -1,12 +1,15 @@
-'use strict';
+const _ = require('lodash');
+const Promise = require('bluebird');
+const GraphQL = require('graphql');
+const BlogType = require('../types/BlogType').BlogType;
+const GitHub = require('../../core/github');
 
-import _ from 'lodash';
-import Promise from 'bluebird';
-import { GraphQLList as List, GraphQLString as StringType, GraphQLNonNull as NonNull } from 'graphql';
+const StringType = GraphQL.GraphQLString;
+const NonNull = GraphQL.GraphQLNonNull;
 
-import BlogType from '../types/BlogType';
-import { host } from '../../config';
-import { getRepoTree, getTextFile, getUserData } from '../../core/github';
+const getRepoTree = GitHub.getRepoTree;
+const getTextFile = GitHub.getTextFile;
+const getUserData = GitHub.getUserData;
 
 const blog = {
   type: BlogType,
@@ -31,8 +34,8 @@ const blog = {
         return Promise.all(_.map(_.filter(tree, file => _.endsWith(file.path, '.css')), style => getTextFile(owner, repo, style.path))).then(styles => {
           return {
             title: config.title,
-            url: `http://${host}/${owner}/${repo}`,
-            baseUrl: `http://${host}`,
+            url: `/${owner}/${repo}`,
+            baseUrl: `/`,
             user: owner,
             repo: repo,
             owner: {
@@ -60,4 +63,4 @@ const blog = {
   }
 };
 
-export default blog;
+module.exports = blog;

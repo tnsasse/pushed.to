@@ -1,11 +1,11 @@
-var graphql = require('graphql');
+const graphql = require('graphql');
 
-var List = graphql.GraphQLList;
-var ObjectType = graphql.GraphQLObjectType;
-var StringType = graphql.GraphQLString;
-var NonNull = graphql.GraphQLNonNull;
+const List = graphql.GraphQLList;
+const ObjectType = graphql.GraphQLObjectType;
+const StringType = graphql.GraphQLString;
+const NonNull = graphql.GraphQLNonNull;
 
-var OwnerType = new ObjectType({
+const OwnerType = new ObjectType({
   name: 'Owner',
   fields: {
     name: {
@@ -32,7 +32,7 @@ var OwnerType = new ObjectType({
   }
 });
 
-var TemplateType = new ObjectType({
+const TemplateType = new ObjectType({
   name: 'Template',
   fields: {
     styles: {
@@ -54,7 +54,7 @@ var TemplateType = new ObjectType({
   }
 });
 
-var BlogType = new ObjectType({
+const BlogType = new ObjectType({
   name: 'Blog',
   fields: {
     title: {

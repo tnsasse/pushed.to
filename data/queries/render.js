@@ -1,14 +1,18 @@
-'use strict';
+const _ = require('lodash');
+const Base64 = require('js-base64').Base64;
+const Promise = require('bluebird');
+const GraphQL = require('graphql');
+const RenderType = require('../types/RenderType').RenderType;
+const GitHub = require('../../core/github');
+const Query = require('../../core/fetch-graphql');
 
-import _ from 'lodash';
-import { Base64 } from 'js-base64';
-import jade from 'jade';
-import Promise from 'bluebird';
-import { GraphQLList as List, GraphQLString as StringType, GraphQLNonNull as NonNull } from 'graphql';
+const jade = require('pug');
 
-import RenderType from '../types/RenderType';
-import Query from '../../core/fetch-graphql';
-import { getTextFile } from '../../core/github';
+const List = GraphQL.GraphQLList;
+const StringType = GraphQL.GraphQLString;
+const NonNull = GraphQL.GraphQLNonNull;
+
+const getTextFile = GitHub.getTextFile;
 
 const render = {
   type: RenderType,
@@ -53,16 +57,8 @@ const render = {
             });
           }, data).content
         };
-      }).catch(e => {
-      console.log(e);
-      console.error(e);
-      console.log(e.stack);
-      return {
-        data: {},
-        result: '<div>Error</div>'
-      };
-    });
+      });
   }
 };
 
-export default render;
+module.exports = render;
