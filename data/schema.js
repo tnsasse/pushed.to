@@ -1,9 +1,9 @@
 const GraphQL = require('graphql');
 
-const blog = require('./queries/blog');
-const post = require('./queries/post');
-const posts = require('./queries/posts');
-const render = require('./queries/render');
+const blog = require('./resolvers/blog');
+const post = require('./resolvers/post');
+const posts = require('./resolvers/posts');
+const render = require('./resolvers/render');
 
 const Schema = GraphQL.GraphQLSchema;
 const ObjectType = GraphQL.GraphQLObjectType;

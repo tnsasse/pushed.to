@@ -20,6 +20,7 @@
     "morgan": "~1.9.1",
     "node-cache": "^4.2.0",
     "node-fetch": "^2.6.0",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "stripmargin": "^1.0.7"
   }
 }

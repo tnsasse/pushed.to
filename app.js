@@ -7,6 +7,7 @@ const expressGraphQL = require('express-graphql');
 
 const indexRouter = require('./routes/index');
 const blogRouter = require('./routes/blog');
+const githubRouter = require('./routes/github');
 
 const schema = require('./data/schema');
 
@@ -34,6 +35,7 @@ app.use('/graphql', expressGraphQL(req => ({
 // static content
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/gh', githubRouter);
 app.use('/', indexRouter);
 app.use('/', blogRouter);
 

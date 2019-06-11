@@ -45,10 +45,10 @@ function getBlob(owner, repo, sha) {
           .getBlob({
             owner: owner,
             repo: repo,
-            commit_sha: sha
+            file_sha: sha
           })
           .then(response => {
-            handle(undefined, response);
+            handle(undefined, response.data);
           })
           .catch(error => {
             handle(error);
@@ -79,7 +79,7 @@ function getCommit(owner, repo, sha) {
             commit_sha: sha
           })
           .then(response => {
-            handle(undefined, response);
+            handle(undefined, response.data);
           })
           .catch(error => {
             handle(error);
@@ -107,7 +107,7 @@ function getCommits(owner, repo, path) {
             path: path
           })
           .then(response => {
-            handle(undefined, response);
+            handle(undefined, response.data);
           })
           .catch(error => {
             handle(error);
@@ -165,7 +165,7 @@ function getRepoTree(owner, repo) {
             recursive: 1
           })
           .then(response => {
-            handle(undefined, response);
+            handle(undefined, response.data);
           })
           .catch(error => {
             handle(error);
@@ -194,7 +194,7 @@ function getUserData(owner) {
             username: owner
           })
           .then(response => {
-            handle(undefined, response);
+            handle(undefined, response.data);
           })
           .catch(error => {
             handle(error);

@@ -4,8 +4,10 @@ const express = require('express');
 
 const router = express.Router();
 
+const blogQuery = require('../data/queries/blog');
+
 router.get('/:user/:project', (req, res, next) => {
-  res.send('show posts ' + req.params.user + "/" + req.params.project);
+  res.send(blogQuery(req.params.user, req.params.project));
 });
 
 router.use('/:user/:project', (req, res, next) => {
