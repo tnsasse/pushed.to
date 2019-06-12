@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // graphql API
-app.use('/graphql', expressGraphQL(req => ({
+app.use('/api/graphql', expressGraphQL(req => ({
   schema,
   graphiql: true,
   rootValue: {
@@ -35,8 +35,10 @@ app.use('/graphql', expressGraphQL(req => ({
 // static content
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/gh', githubRouter);
+app.use('/api/github', githubRouter);
+
 app.use('/', indexRouter);
+
 app.use('/', blogRouter);
 
 // catch 404 and forward to error handler
