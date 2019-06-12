@@ -1,5 +1,5 @@
 const GraphQL = require('graphql');
-const PostItemType = require('../types/PostType').PostItemsType;
+const PostItemType = require('../types/PostType').PostType;
 const GitHub = require('../../core/github');
 
 const StringType = GraphQL.GraphQLString;

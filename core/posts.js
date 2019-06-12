@@ -24,7 +24,7 @@ var renderPost = (owner, repo, post) => {
     return {
       key: post.path,
       title: _.trim(_.trimStart(_.head(_.split(pContent, '\n')), '#')),
-      link: `/blogs/${owner}/${repo}/posts/${post.path}`,
+      link: `/${owner}/${repo}/posts/${post.path}`,
       author: commit.commit.author.name,
       publishedDate: Moment(new Date(commit.commit.author.date)).format(pConfig.dateFormat || 'MMMM DD, YYYY'),
       publishedTime: (new Date(commit.commit.author.date)).getTime() * 1,

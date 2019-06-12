@@ -1,4 +1,4 @@
-const github = require('../core/github');
+const github = require('../../core/github');
 const express = require('express');
 
 const router = express.Router();
@@ -44,6 +44,25 @@ router.get('/:user/:project/blob/:blob', (req, res) => {
         .then(response => {
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(response, null, 2));
+        });
+});
+
+router.use('/:user/:project/text', (req, res) => {
+    github
+        .getTextFile(req.params.user, req.params.project, req.url.substr(1))
+        .then(response => {
+            res.setHeader('Content-Type', 'text/plain');
+            res.send(response);
+        });
+});
+
+router.use('/:user/:project/render', (req, res) => {
+    github
+        .getTextFile(req.params.user, req.params.project, req.url.substr(1))
+        .then(text => github.renderMarkdown(req.params.user, req.params.project, req.url.substr(1), text))
+        .then(response => {
+            res.setHeader('Content-Type', 'text/html');
+            res.send(response);
         });
 });
 

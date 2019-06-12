@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "dev": "DEBUG=pushed-to:* nodemon ./bin/www",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -22,5 +23,8 @@
     "node-fetch": "^2.6.0",
     "pug": "^2.0.3",
     "stripmargin": "^1.0.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }

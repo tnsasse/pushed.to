@@ -36,12 +36,15 @@ const render = {
   },
 
   resolve(request, {owner, repo, queries, templates, selects}) {
+    console.log('huhuuu');
+
     return Promise.join(
       Promise.all(_.map(templates, file => getTextFile(owner, repo, file))),
       Promise.all(_.map(queries, (queryEncoded) => {
         const query = Base64.decode(queryEncoded);
         return Query(query);
       })), (templates, results) => {
+        console.log("HUHUU")
         const data = _.reduce(results, (collect, result) => {
           return _.assign({}, collect, result.data);
         }, {});
@@ -57,6 +60,9 @@ const render = {
             });
           }, data).content
         };
+      })
+      .catch(error => {
+        console.log(error);
       });
   }
 };

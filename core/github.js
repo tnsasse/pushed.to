@@ -238,7 +238,7 @@ function renderMarkdown(owner, repo, id, text, mode) {
             context: `${owner}/${repo}`
           })
           .then(response => {
-            handle(undefined, response);
+            handle(undefined, response.data);
           })
           .catch(error => {
             handle(error);
@@ -255,6 +255,7 @@ module.exports = {
     getCommit: getCommit,
     getCommits: getCommits,
     getFile: getFile,
+    getText: getText,
     getTextFile: getTextFile,
     getRepoTree: getRepoTree,
     getUserData: getUserData,
