@@ -27,7 +27,8 @@ html(lang='en')
             a.absolute-toggle.d-block.d-md-none(data-toggle='collapse', href='#navbarMenu', role='button', aria-expanded='false', aria-controls='navbarMenu')
               span.burger-lines
             h1.site-logo
-              a(href='index.html') Balita
+              a(href='index.html')= blog.title
+            span Hello World
       nav.navbar.navbar-expand-md.navbar-light.bg-light
         .container
           #navbarMenu.collapse.navbar-collapse
@@ -61,7 +62,7 @@ html(lang='en')
           .col-md-12.col-lg-8.main-content
             .row
               .col-md-12
-                block content 
+                block mainContent 
 
                 h2.mb-4 Hi There! I'm Meagan Smith
                 p.mb-5

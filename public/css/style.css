@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,500,500i,600,600i,700,700i|Roboto:300,400,500,700&display=swap');
+
+.pt .navbar,
+.pt .pt-footer {
+    background-color: #000;
+    opacity: 0.9;
+}
+
+.pt .pt-brand,
+.pt .pt-brand span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1em;
+    color: #fff;
+}
+
+.pt .pt-brand {
+    font-weight: 500;
+}
+
+.pt .pt-brand span {
+    font-weight: 400;
+    opacity: 0.5;
+}
+
+.pt .pt-main {
+    min-height: 50em;
+    padding: 6rem 15px 2rem 15px;
+}
+
+.pt .pt-blog-header {
+    border-bottom: 3px solid #007bff;
+    margin-bottom: 2rem;
+}
+
+.pt .pt-main .pt-article {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #666;
+}
+
+.pt .pt-main .pt-article .pt-meta {
+    color: #666;
+}
+
+.pt .pt-main .pt-article p {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.pt .pt-main .pt-article a.pt-read {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #007bff;
+}
+
+.pt .pt-main .pt-article a.pt-read:hover {
+    color: #0353a4;
+    text-decoration: none;
+}
+
+.pt .pt-main .pt-paging a {
+    color: #666;
+}
+
+.pt .pt-main .pt-paging a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.pt .pt-main .pt-paging .pt-pages {
+    text-align: center;
+}
+
+.pt .pt-main .pt-paging .pt-next {
+    text-align: right;
+}
+
+.pt .pt-main h1,
+.pt .pt-main h2,
+.pt .pt-main h3,
+.pt .pt-main h4,
+.pt .pt-main h5,
+.pt .pt-main h6 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+}
+
+.pt .pt-main .pt-lead {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.pt .pt-main .pt-about {
+    text-align: center;
+}
+
+.pt .pt-main .pt-about .pt-profile-image {
+    width: 60%;
+    border-radius: 100%;
+    margin: auto;
+    display: block;
+}
+
+.pt .pt-main .pt-about .pt-details {
+    margin: 0.5rem 0;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.pt .pt-main .pt-about .pt-details p {
+    margin: 0;
+}
+
+.pt .pt-main .pt-about .pt-details p.pt-author {
+    margin-bottom: .5em;
+}
+.pt .pt-main .pt-about .pt-details p.pt-origin,
+.pt .pt-main .pt-about .pt-details p.pt-web a,
+.pt .pt-main .pt-about ul.pt-social li a {
+    color: #666;
+}
+
+.pt .pt-main .pt-about .pt-details p.pt-web a:hover,
+.pt .pt-main .pt-about ul.pt-social li a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.pt .pt-main .pt-about ul.pt-social {
+    list-style: none;
+    display: inline;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.pt .pt-main .pt-about ul.pt-social li {
+    display: inline;
+}
+
+.pt .pt-main .pt-about ul.pt-social li a {
+    padding: 5px;
+}
+
+.pt .pt-footer {
+    padding: 2em;
+}
+
+.pt .pt-footer .pt-copyright {
+    margin: 0;
+}

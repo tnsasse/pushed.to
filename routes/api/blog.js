@@ -6,26 +6,25 @@ const schema = require('../../data/schema');
 const blogQuery = require('../../data/queries/blog');
 const postsQuery = require('../../data/queries/posts');
 const postQuery = require('../../data/queries/post');
-const renderQuery = require('../../data/queries/render-posts');
 
 router.get('/:user/:project', (req, res) => {
-    graphql(schema, blogQuery(req.params.user, req.params.project)).then(response => {
+    graphql(schema, blogQuery(req.params.user, req.params.project)).then(({ data }) => {
         res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify(response, null, 2));
+        res.send(JSON.stringify(data, null, 2));
     });
   });
 
 router.get('/:user/:project/posts', (req, res) => {
-    graphql(schema, postsQuery(req.params.user, req.params.project)).then(response => {
+    graphql(schema, postsQuery(req.params.user, req.params.project)).then(({ data }) => {
         res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify(response, null, 2));
+        res.send(JSON.stringify(data, null, 2));
     });
 })
 
 router.get('/:user/:project/posts/:page', (req, res) => {
-    graphql(schema, postsQuery(req.params.user, req.params.project, req.params.page)).then(response => {
+    graphql(schema, postsQuery(req.params.user, req.params.project, req.params.page)).then(({ data }) => {
         res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify(response, null, 2));
+        res.send(JSON.stringify(data, null, 2));
     });
 })
 
