@@ -3,6 +3,7 @@ extends layout
 include mixins
 
 block page_parameters
+  - var page_brand_url= blog.url
   - var page_title = blog.title
   - var page_url = 'https://pushed.to' + blog.url
   - var page_subtitle = blog.url
