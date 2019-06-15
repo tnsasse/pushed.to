@@ -46,15 +46,6 @@ const blog = {
               avatar: user.avatar_url,
               twitter: config.twitter,
               github: user.html_url
-            },
-            template: {
-              styles: styles,
-              titles: _.map(config.staticTitles || [], (title, file) => {
-                return {
-                  file: file,
-                  title: title
-                }
-              })
             }
           };
         });

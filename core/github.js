@@ -10,7 +10,10 @@ var cache = new NodeCache({
 
 var github = () => {
   var github = new Octokit({
-    auth: 'e4366e23c86a54c4f2d253490be164c8754c20d9',
+    auth: {
+      clientId: config.github.client_id,
+      clientSecret: config.github.client_secret
+    },
     userAgent: 'pushed.to',
     log: {
         debug: () => {},

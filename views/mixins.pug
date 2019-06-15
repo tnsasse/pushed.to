@@ -1,0 +1,28 @@
+mixin about(blog)
+    .pt-about
+        img.circle.pt-profile-image(src=blog.owner.avatar, alt=blog.owner.name)
+        .pt-details
+            p.pt-author
+                | by 
+                b= blog.owner.name
+            if blog.owner.locaction
+                p.pt-origin blog.owner.locaction
+            
+            if blog.owner.url
+                p.pt-web
+                    a(href=blog.owner.url, title=blog.owner.name, target='_blank')= blog.owner.url
+            ul.pt-social
+                if blog.owner.twitter
+                    li
+                        a(href='https://twitter.com/' + blog.owner.twitter, title='Follow me on Twitter', target='_blank')
+                            i.fab.fa-twitter
+                    li
+                if blog.owner.github
+                    li 
+                        a(href=blog.owner.github, title='Visit me on Github', target='_blank')
+                            i.fab.fa-github
+
+        .pt-static-links
+            a.badge.badge-secondary(href='#') About Me
+            | 
+            a.badge.badge-secondary(href='#') Foo Bar

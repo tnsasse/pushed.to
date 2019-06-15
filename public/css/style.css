@@ -42,9 +42,14 @@
     color: #666;
 }
 
-.pt .pt-main .pt-article p {
+.pt .pt-main .pt-article p,
+.pt .pt-main .pt-article .pt-article-content {
     font-size: 1.25rem;
     font-weight: 300;
+}
+
+.pt .pt-main .pt-article .pt-article-content {
+    margin-bottom: 1rem;
 }
 
 .pt .pt-main .pt-article a.pt-read {
@@ -145,6 +150,22 @@
     padding: 2em;
 }
 
-.pt .pt-footer .pt-copyright {
+.pt .pt-footer ul {
     margin: 0;
+    padding: 0;
+}
+
+.pt .pt-footer ul li {
+    list-style-type: none;
+}
+
+.pt .pt-footer ul a,
+.pt .pt-footer p a {
+    color: #6c757d;
+}
+
+.pt .pt-footer ul a:hover,
+.pt .pt-footer p a:hover {
+    color: #eee;
+    text-decoration: none;
 }

@@ -1,443 +1,66 @@
 doctype html
+
+block page_parameters
+
 html(lang='en')
   head
-    title Colorlib Balita — Minimal Blog Template
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    link(href='https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700', rel='stylesheet')
-    link(rel='stylesheet', href='/css/bootstrap.css')
-    link(rel='stylesheet', href='/css/animate.css')
-    link(rel='stylesheet', href='/css/owl.carousel.min.css')
-    link(rel='stylesheet', href='/fonts/ionicons/css/ionicons.min.css')
-    link(rel='stylesheet', href='/fonts/fontawesome/css/font-awesome.min.css')
-    link(rel='stylesheet', href='/fonts/flaticon/font/flaticon.css')
-    // Theme Style
-    link(rel='stylesheet', href='/css/style.css')
-  body
-    header(role='banner')
-      .top-bar
-        .container
-          .row
-            .col-9 
-              a(href="#") pushed.to
-            .col-3.search-top
-      .container.logo-wrap
-        .row.pt-5
-          .col-12.text-center
-            a.absolute-toggle.d-block.d-md-none(data-toggle='collapse', href='#navbarMenu', role='button', aria-expanded='false', aria-controls='navbarMenu')
-              span.burger-lines
-            h1.site-logo
-              a(href='index.html') Balita
-      nav.navbar.navbar-expand-md.navbar-light.bg-light
-        .container
-          #navbarMenu.collapse.navbar-collapse
-            ul.navbar-nav.mx-auto
-              li.nav-item
-                a.nav-link(href='index.html') Home
-              li.nav-item.dropdown
-                a#dropdown04.nav-link.dropdown-toggle(href='category.html', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Travel
-                .dropdown-menu(aria-labelledby='dropdown04')
-                  a.dropdown-item(href='category.html') Asia
-                  a.dropdown-item(href='category.html') Europe
-                  a.dropdown-item(href='category.html') Dubai
-                  a.dropdown-item(href='category.html') Africa
-                  a.dropdown-item(href='category.html') South America
-              li.nav-item.dropdown
-                a#dropdown05.nav-link.dropdown-toggle(href='category.html', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Categories
-                .dropdown-menu(aria-labelledby='dropdown05')
-                  a.dropdown-item(href='category.html') Lifestyle
-                  a.dropdown-item(href='category.html') Food
-                  a.dropdown-item(href='category.html') Adventure
-                  a.dropdown-item(href='category.html') Travel
-                  a.dropdown-item(href='category.html') Business
-              li.nav-item
-                a.nav-link.active(href='about.html') About
-              li.nav-item
-                a.nav-link(href='contact.html') Contact
-    // END header
-    section.site-section
-      .container
-        .row.blog-entries
-          .col-md-12.col-lg-8.main-content
-            .row
-              .col-md-12
-                block content 
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='Code centric blogging platform. From developers, for developers.')
+        meta(name='author', content='Michael Wellner and the contributors of pushed.to')
+        title= page_title
 
-                h2.mb-4 Hi There! I'm Meagan Smith
-                p.mb-5
-                  img.img-fluid(src='/images/img_6.jpg', alt='Image placeholder')
-                p
-                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum minima eveniet recusandae suscipit eum laboriosam fugit amet deleniti iste et. Ad dolores, necessitatibus non saepe tenetur impedit commodi quibusdam natus repellat, exercitationem accusantium perferendis officiis. Laboriosam impedit quia minus pariatur!
-                p
-                  | Dignissimos iste consectetur, nemo magnam nulla suscipit eius quibusdam, quo aperiam quia quae est explicabo nostrum ab aliquid vitae obcaecati tenetur beatae animi fugiat officia id ipsam sint? Obcaecati ea nisi fugit assumenda error totam molestiae saepe fugiat officiis quam?
-                p
-                  | Culpa porro quod doloribus dolore sint. Distinctio facilis ullam voluptas nemo voluptatum saepe repudiandae adipisci officiis, explicabo eaque itaque sed necessitatibus, fuga, ea eius et aliquam dignissimos repellendus impedit pariatur voluptates. Dicta perferendis assumenda, nihil placeat, illum quibusdam. Vel, incidunt?
-                p
-                  | Dolorum blanditiis illum quo quaerat, possimus praesentium perferendis! Quod autem optio nobis, placeat officiis dolorem praesentium odit. Vel, cum, a. Adipisci eligendi eaque laudantium dicta tenetur quod, pariatur sunt sed natus officia fuga accusamus reprehenderit ratione, provident possimus ut voluptatum.
-            .row.mb-5.mt-5
-              .col-md-12.mb-5
-                h2 My Latest Posts
-              .col-md-12
-                .post-entry-horzontal
-                  a(href='blog-single.html')
-                    .image(style='background-image: url(/images/img_10.jpg);')
-                    span.text
-                      .post-meta
-                        span.category Travel
-                        span.mr-2 March 15, 2018 
-                        |  •
-                        span.ml-2
-                          span.fa.fa-comments
-                          |  3
-                      h2 There’s a Cool New Way for Men to Wear Socks and Sandals
-                // END post
-                .post-entry-horzontal
-                  a(href='blog-single.html')
-                    .image(style='background-image: url(/images/img_11.jpg);')
-                    span.text
-                      .post-meta
-                        span.category Lifestyle
-                        span.mr-2 March 15, 2018 
-                        |  •
-                        span.ml-2
-                          span.fa.fa-comments
-                          |  3
-                      h2 There’s a Cool New Way for Men to Wear Socks and Sandals
-                // END post
-                .post-entry-horzontal
-                  a(href='blog-single.html')
-                    .image(style='background-image: url(/images/img_12.jpg);')
-                    span.text
-                      .post-meta
-                        span.category Food
-                        span.mr-2 March 15, 2018 
-                        |  •
-                        span.ml-2
-                          span.fa.fa-comments
-                          |  3
-                      h2 There’s a Cool New Way for Men to Wear Socks and Sandals
-                // END post
-                .post-entry-horzontal
-                  a(href='blog-single.html')
-                    .image(style='background-image: url(/images/img_9.jpg);')
-                    span.text
-                      .post-meta
-                        span.category Travel
-                        span.mr-2 March 15, 2018 
-                        |  •
-                        span.ml-2
-                          span.fa.fa-comments
-                          |  3
-                      h2 There’s a Cool New Way for Men to Wear Socks and Sandals
-                // END post
-                .post-entry-horzontal
-                  a(href='blog-single.html')
-                    .image(style='background-image: url(/images/img_8.jpg);')
-                    span.text
-                      .post-meta
-                        span.category Lifestyle
-                        span.mr-2 March 15, 2018 
-                        |  •
-                        span.ml-2
-                          span.fa.fa-comments
-                          |  3
-                      h2 There’s a Cool New Way for Men to Wear Socks and Sandals
-                // END post
-                .post-entry-horzontal
-                  a(href='blog-single.html')
-                    .image(style='background-image: url(/images/img_7.jpg);')
-                    span.text
-                      .post-meta
-                        span.category Food
-                        span.mr-2 March 15, 2018 
-                        |  •
-                        span.ml-2
-                          span.fa.fa-comments
-                          |  3
-                      h2 There’s a Cool New Way for Men to Wear Socks and Sandals
-                // END post
-                .post-entry-horzontal
-                  a(href='blog-single.html')
-                    .image(style='background-image: url(/images/img_6.jpg);')
-                    span.text
-                      .post-meta
-                        span.category Travel
-                        span.mr-2 March 15, 2018 
-                        |  •
-                        span.ml-2
-                          span.fa.fa-comments
-                          |  3
-                      h2 There’s a Cool New Way for Men to Wear Socks and Sandals
-                // END post
-                .post-entry-horzontal
-                  a(href='blog-single.html')
-                    .image(style='background-image: url(/images/img_5.jpg);')
-                    span.text
-                      .post-meta
-                        span.category Lifestyle
-                        span.mr-2 March 15, 2018 
-                        |  •
-                        span.ml-2
-                          span.fa.fa-comments
-                          |  3
-                      h2 There’s a Cool New Way for Men to Wear Socks and Sandals
-                // END post
-                .post-entry-horzontal
-                  a(href='blog-single.html')
-                    .image(style='background-image: url(/images/img_4.jpg);')
-                    span.text
-                      .post-meta
-                        span.category Food
-                        span.mr-2 March 15, 2018 
-                        |  •
-                        span.ml-2
-                          span.fa.fa-comments
-                          |  3
-                      h2 There’s a Cool New Way for Men to Wear Socks and Sandals
-                // END post
-            .row
-              .col-md-12.text-center
-                nav.text-center(aria-label='Page navigation')
-                  ul.pagination
-                    li.page-item.active
-                      a.page-link(href='#') Prev
-                    li.page-item
-                      a.page-link(href='#') 1
-                    li.page-item
-                      a.page-link(href='#') 2
-                    li.page-item
-                      a.page-link(href='#') 3
-                    li.page-item
-                      a.page-link(href='#') Next
-          // END main-content
-          .col-md-12.col-lg-4.sidebar
-            .sidebar-box.search-form-wrap
-              form.search-form(action='#')
-                .form-group
-                  span.icon.fa.fa-search
-                  input#s.form-control(type='text', placeholder='Type a keyword and hit enter')
-            // END sidebar-box
-            .sidebar-box
-              .bio.text-center
-                img.img-fluid(src='/images/person_1.jpg', alt='Image Placeholder')
-                .bio-body
-                  h2 Meagan Smith
-                  p
-                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.
-                  p
-                    a.btn.btn-primary.btn-sm(href='#') Read my bio
-                  p.social
-                    a.p-2(href='#')
-                      span.fa.fa-facebook
-                    a.p-2(href='#')
-                      span.fa.fa-twitter
-                    a.p-2(href='#')
-                      span.fa.fa-instagram
-                    a.p-2(href='#')
-                      span.fa.fa-youtube-play
-            // END sidebar-box
-            .sidebar-box
-              h3.heading Popular Posts
-              .post-entry-sidebar
-                ul
-                  li
-                    a(href='')
-                      img.mr-4(src='/images/img_2.jpg', alt='Image placeholder')
-                      .text
-                        h4 There’s a Cool New Way for Men to Wear Socks and Sandals
-                        .post-meta
-                          span.mr-2 March 15, 2018 
-                          |  •
-                          span.ml-2
-                            span.fa.fa-comments
-                            |  3
-                  li
-                    a(href='')
-                      img.mr-4(src='/images/img_4.jpg', alt='Image placeholder')
-                      .text
-                        h4 There’s a Cool New Way for Men to Wear Socks and Sandals
-                        .post-meta
-                          span.mr-2 March 15, 2018 
-                          |  •
-                          span.ml-2
-                            span.fa.fa-comments
-                            |  3
-                  li
-                    a(href='')
-                      img.mr-4(src='/images/img_12.jpg', alt='Image placeholder')
-                      .text
-                        h4 There’s a Cool New Way for Men to Wear Socks and Sandals
-                        .post-meta
-                          span.mr-2 March 15, 2018 
-                          |  •
-                          span.ml-2
-                            span.fa.fa-comments
-                            |  3
-            // END sidebar-box
-            .sidebar-box
-              h3.heading Categories
-              ul.categories
-                li
-                  a(href='#')
-                    | Courses 
-                    span (12)
-                li
-                  a(href='#')
-                    | News 
-                    span (22)
-                li
-                  a(href='#')
-                    | Design 
-                    span (37)
-                li
-                  a(href='#')
-                    | HTML 
-                    span (42)
-                li
-                  a(href='#')
-                    | Web Development 
-                    span (14)
-            // END sidebar-box
-            .sidebar-box
-              h3.heading Tags
-              ul.tags
-                li
-                  a(href='#') Travel
-                li
-                  a(href='#') Adventure
-                li
-                  a(href='#') Food
-                li
-                  a(href='#') Lifestyle
-                li
-                  a(href='#') Business
-                li
-                  a(href='#') Freelancing
-                li
-                  a(href='#') Travel
-                li
-                  a(href='#') Adventure
-                li
-                  a(href='#') Food
-                li
-                  a(href='#') Lifestyle
-                li
-                  a(href='#') Business
-                li
-                  a(href='#') Freelancing
-          // END sidebar
-    footer.site-footer
+        if page_url
+          link(rel='canonical', href=page_url)
+
+        // Bootstrap core CSS
+        link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/fontawsome/css/all.min.css')
+
+        // App CSS
+        link(rel='stylesheet', href='/css/style.css')
+        link(rel='stylesheet', href='/css/github.css')
+
+  body.pt
+    nav.navbar.navbar-expand-md.navbar-dark.fixed-top
       .container
-        .row.mb-5
-          .col-md-4
-            h3 Paragraph
-            p
-              img.img-fluid(src='/images/img_1.jpg', alt='Image placeholder')
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, accusantium optio unde perferendis eum illum voluptatibus dolore tempora, consequatur minus asperiores temporibus reprehenderit.
-          .col-md-6.ml-auto
-            .row
-              .col-md-7
-                h3 Latest Post
-                .post-entry-sidebar
-                  ul
-                    li
-                      a(href='')
-                        img.mr-4(src='/images/img_6.jpg', alt='Image placeholder')
-                        .text
-                          h4 There’s a Cool New Way for Men to Wear Socks and Sandals
-                          .post-meta
-                            span.mr-2 March 15, 2018 
-                            |  •
-                            span.ml-2
-                              span.fa.fa-comments
-                              |  3
-                    li
-                      a(href='')
-                        img.mr-4(src='/images/img_3.jpg', alt='Image placeholder')
-                        .text
-                          h4 There’s a Cool New Way for Men to Wear Socks and Sandals
-                          .post-meta
-                            span.mr-2 March 15, 2018 
-                            |  •
-                            span.ml-2
-                              span.fa.fa-comments
-                              |  3
-                    li
-                      a(href='')
-                        img.mr-4(src='/images/img_4.jpg', alt='Image placeholder')
-                        .text
-                          h4 There’s a Cool New Way for Men to Wear Socks and Sandals
-                          .post-meta
-                            span.mr-2 March 15, 2018 
-                            |  •
-                            span.ml-2
-                              span.fa.fa-comments
-                              |  3
-              .col-md-1
-              .col-md-4
-                .mb-5
-                  h3 Quick Links
-                  ul.list-unstyled
-                    li
-                      a(href='#') About Us
-                    li
-                      a(href='#') Travel
-                    li
-                      a(href='#') Adventure
-                    li
-                      a(href='#') Courses
-                    li
-                      a(href='#') Categories
-                .mb-5
-                  h3 Social
-                  ul.list-unstyled.footer-social
-                    li
-                      a(href='#')
-                        span.fa.fa-twitter
-                        |  Twitter
-                    li
-                      a(href='#')
-                        span.fa.fa-facebook
-                        |  Facebook
-                    li
-                      a(href='#')
-                        span.fa.fa-instagram
-                        |  Instagram
-                    li
-                      a(href='#')
-                        span.fa.fa-vimeo
-                        |  Vimeo
-                    li
-                      a(href='#')
-                        span.fa.fa-youtube-play
-                        |  Youtube
-                    li
-                      a(href='#')
-                        span.fa.fa-snapchat
-                        |  Snapshot
+        a.navbar-brand.pt-brand(href='#')
+          | pushed.to
+          span= page_subtitle
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarCollapse.collapse.navbar-collapse
+          .mr-auto
+          ul.navbar-nav
+            li.nav-item
+              a.nav-link(href='/home#about') About
+            li.nav-item
+              a.nav-link(href='/home#getting-started') Getting Started
+    
+    main.container.pt-main(role='main')
+      block page_content
+      
+    footer.text-muted.pt-footer
+      .container
         .row
-          .col-md-12
-            // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-            | Copyright ©
-            script.
-              document.write(new Date().getFullYear());
-            |  All rights reserved | This template is made with 
-            i.fa.fa-heart-o(aria-hidden='true')
-            |  by 
-            a(href='https://colorlib.com', target='_blank') Colorlib
-            // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-            // END footer
-            // loader
-            #loader.show.fullscreen
-              svg.circular(width='48px', height='48px')
-                circle.path-bg(cx='24', cy='24', r='22', fill='none', stroke-width='4', stroke='#eeeeee')
-                circle.path(cx='24', cy='24', r='22', fill='none', stroke-width='4', stroke-miterlimit='10', stroke='#f4b214')
-            script(src='/js/jquery-3.2.1.min.js')
-            script(src='/js/jquery-migrate-3.0.0.js')
-            script(src='/js/popper.min.js')
-            script(src='/js/bootstrap.min.js')
-            script(src='/js/owl.carousel.min.js')
-            script(src='/js/jquery.waypoints.min.js')
-            script(src='/js/jquery.stellar.min.js')
-            script(src='/js/main.js')
+          .col-sm-3
+            a.navbar-brand.pt-brand(href='#') pushed.to
+            p Code centric blogging. From developers, for developers.
+          .col-sm-3
+            span.navbar-brand.pt-brand Links
+            ul
+              li
+                a(href='https://github.com/cokeSchlumpf/pushed.to') GitHub
+              li
+                a(href='https://github.com/cokeSchlumpf/pushed.to/issues/new') Open an issue
+              li
+                a(href='/home#getting-started') Getting Started
+              li
+                a(href='/home#about') About
+          .col-sm-6
+            span.navbar-brand.pt-brand
+            p
+              | Crafted since 2016. Designed and coded with love and enthusiasm by 
+              a(href='https://github.com/cokeSchlumpf/pushed.to/graphs/contributors', target='_blank') pushed.to contributors
+              | . Content of blogs is owned by authors.
+    script(src='/bootstrap/js/bootstrap.bundle.min.js', crossorigin='anonymous')

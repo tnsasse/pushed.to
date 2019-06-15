@@ -16,13 +16,6 @@ module.exports = (owner, repo) => s.stripMargin(
     |      avatar,
     |      twitter,
     |      github
-    |    },
-    |    template {
-    |      styles
-    |      titles {
-    |        file,
-    |         title
-    |      }
     |    }
     |  }
     }`);

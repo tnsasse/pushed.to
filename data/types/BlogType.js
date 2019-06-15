@@ -32,28 +32,6 @@ const OwnerType = new ObjectType({
   }
 });
 
-const TemplateType = new ObjectType({
-  name: 'Template',
-  fields: {
-    styles: {
-      type: new List(StringType)
-    },
-    titles: {
-      type: new List(new ObjectType({
-        name: 'Title',
-        fields: {
-          file: {
-            type: new NonNull(StringType)
-          },
-          title: {
-            type: new NonNull(StringType)
-          }
-        }
-      }))
-    }
-  }
-});
-
 const BlogType = new ObjectType({
   name: 'Blog',
   fields: {
@@ -74,9 +52,6 @@ const BlogType = new ObjectType({
     },
     owner: {
       type: new NonNull(OwnerType)
-    },
-    template: {
-      type: new NonNull(TemplateType)
     }
   },
 });

@@ -1,130 +1,55 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title= blog.title + " | pushed.to"
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    meta(name='keywords', content='')
-    link(rel='stylesheet', type='text/css', href='https://themes.gohugo.io//theme/pixyll//css/combined-min.css')
-    link(rel='stylesheet', type='text/css', href='https://themes.gohugo.io//theme/pixyll//tipuesearch/tipuesearch.css')
-  body
-    .site-wrap
-      header.site-header.px2.px-responsive
-        .mt2.wrap
-          .measure
-            a.site-title(href='https://themes.gohugo.io//theme/pixyll/') Pixyll
-            nav.site-nav.right
-              a(href='https://themes.gohugo.io//theme/pixyll//about/') About
-              a(href='https://themes.gohugo.io//theme/pixyll//tags/') Tags
-              a(href='https://themes.gohugo.io//theme/pixyll//contact/') Contact
-              a(href='./ru') ru
-              form.navbar-search(action='https://themes.gohugo.io//theme/pixyll//search/index.html', onsubmit="return validateForm(this.elements['q'].value);")
-                input#tipue_search_input.search-query(type='text', placeholder='Search', name='q')
-            .clearfix
-      .post.p2.p-responsive.wrap(role='main')
-        .measure
-          .home
-            .posts
-              .post
-                a.post-link(href='https://themes.gohugo.io//theme/pixyll/post/markdown-syntax/')
-                  p.post-meta.left Mar 11, 2019
-                  p.post-author.right Written by Hugo Authors
-                  .clearfix
-                  h3.h2.post-title Markdown Syntax Guide 
-                  p.post-summary
-                  p
-                    | This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
-                  p
-                p.post-meta
-                  | Tags: 
-                  a(href='https://themes.gohugo.io//theme/pixyll//tags/markdown') markdown
-                  |       , 
-                  a(href='https://themes.gohugo.io//theme/pixyll//tags/css') css
-                  |       , 
-                  a(href='https://themes.gohugo.io//theme/pixyll//tags/html') html
-                  |       , 
-                  a(href='https://themes.gohugo.io//theme/pixyll//tags/themes') themes
-              .post
-                a.post-link(href='https://themes.gohugo.io//theme/pixyll/post/rich-content/')
-                  p.post-meta.left Mar 10, 2019
-                  p.post-author.right Written by Hugo Authors
-                  .clearfix
-                  h3.h2.post-title Rich Content 
-                  p.post-summary
-                p
-                  a.post-link(href='https://themes.gohugo.io//theme/pixyll/post/rich-content/') Hugo ships with several 
-                  a(href='https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes', target='_blank') Built-in Shortcodes
-                  |  for rich content, along with a 
-                  a(href='https://gohugo.io/about/hugo-and-gdpr/', target='_blank') Privacy Config
-                  |  and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.
-                p
-                p.post-meta
-                  | Tags: 
-                  a(href='https://themes.gohugo.io//theme/pixyll//tags/shortcodes') shortcodes
-                  |       , 
-                  a(href='https://themes.gohugo.io//theme/pixyll//tags/privacy') privacy
-              .post
-                a.post-link(href='https://themes.gohugo.io//theme/pixyll/post/placeholder-text/')
-                  p.post-meta.left Mar 9, 2019
-                  p.post-author.right Written by Hugo Authors
-                  .clearfix
-                  h3.h2.post-title Placeholder Text 
-                  p.post-summary
-                  p
-                    | Lorem est tota propiore conpellat pectoribus de
-                    | pectora summo.
-                  p
-                p.post-meta
-                  | Tags: 
-                  a(href='https://themes.gohugo.io//theme/pixyll//tags/markdown') markdown
-                  |       , 
-                  a(href='https://themes.gohugo.io//theme/pixyll//tags/text') text
-              .post
-                a.post-link(href='https://themes.gohugo.io//theme/pixyll/post/math-typesetting/')
-                  p.post-meta.left Mar 8, 2019
-                  p.post-author.right Written by Hugo Authors
-                  .clearfix
-                  h3.h2.post-title Math Typesetting 
-                  p.post-summary
-                  p
-                    | Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.
-                  p
-                p.post-meta
-                  | Tags:
-              .post
-                a.post-link(href='https://themes.gohugo.io//theme/pixyll/post/emoji-support/')
-                  p.post-meta.left Mar 5, 2019
-                  p.post-author.right Written by Hugo Authors
-                  .clearfix
-                  h3.h2.post-title Emoji Support 
-                  p.post-summary
-                  p Emoji can be enabled in a Hugo project in a number of ways.
-                  p
-                p.post-meta
-                  | Tags: 
-                  a(href='https://themes.gohugo.io//theme/pixyll//tags/emoji') emoji
-          .paginatin_area
-            .pagination.clearfix.mb1.mt4
-              .left
-                span.pagination-item.disabled Newer
-              .right
-                span.pagination-item.disabled Older
-    footer.footer
-      .p2.wrap
-        .measure.mt1.center
-          nav.social-icons.icons
-            a.fa.fa-rss.rss(href='./index.xml')
-            a.fa.fa-twitter.twitter(href='https://twitter.com/username')
-          small
-            | Copyright © 2017
-            br
-            |             Powered by 
-            a(href='http://gohugo.io/', target='_blank') Hugo
-            |  & 
-            a(href='https://github.com/azmelanar/hugo-theme-pixyll', target='_blank') Pixyll
-    script(src='./js/highlight.pack.js')
-    script.
-      hljs.initHighlightingOnLoad();
+extends layout
+
+include mixins
+
+block page_parameters
+  - var page_title = blog.title
+  - var page_url = 'https://pushed.to' + blog.url
+  - var page_subtitle = blog.url
+
+block page_content
+  .pt-blog-header.grid
+    h1= blog.title
+    p
+      a.badge.badge-secondary(href='#') #topic-1
+      | 
+      a.badge.badge-secondary(href='#') #topic-2
+    p.pt-lead
+      | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+      | ut labore et dolore magna aliquyam erat, sed diam voluptua.
+  .grid
+    .row
+      .col-sm-8
+        each post in posts.posts
+          article.pt-article
+            h2= post.title
+            p.pt-meta Posted on #{post.publishedDate}
+            div.pt-article-content
+              != post.contentSnippet
+            a.pt-read(href=post.link.substr(0, post.link.length - 3)) Go on reading &gt;
+        else
+          article.pt-article
+            h2 ¯\_(ツ)_/¯ - Sorry, no available posts
+            p.pt-meta 
+            if posts.page == 0
+              p= blog.user + 'has not written any posts yet'
+            else
+              p 
+                | But, there are some posts: 
+                a(href=blog.url) Goto first page of #{blog.title} &gt;
+
+        footer.grid.pt-paging
+          .row
+            .col.pt-prev
+              if posts.page > 1
+                a(href=posts.prevUrl) &#8592; Back
+            .col.pt-pages
+              = posts.page + " of " + posts.pages
+            .col.pt-next
+              if posts.page < posts.pages
+                a(href=posts.nextUrl) Next &#8594;
+      
+      .col-sm-2.order-sm-first
+        + about(blog)
+
+      .col-sm-2
