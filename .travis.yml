@@ -8,8 +8,8 @@ node_js:
 - '10'
 
 script:
-- sed -e "s/\${GH_CLIENT_ID}/${GH_CLIENT_ID}/" manifest.yml 
-- sed -e "s/\${GH_CLIENT_SECRET}/${GH_CLIENT_SECRET}/" manifest.yml
+- sed -e "s/\${GH_CLIENT_ID}/${GH_CLIENT_ID}/" manifest.yml > manifest.yml
+- sed -e "s/\${GH_CLIENT_SECRET}/${GH_CLIENT_SECRET}/" manifest.yml > manifest.yml
 - cat manifest.yml
 
 branches:
