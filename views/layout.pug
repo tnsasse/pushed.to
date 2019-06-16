@@ -1,66 +1,16 @@
 doctype html
 
+include mixins
+
 block page_parameters
 
 html(lang='en')
-  head
-        meta(charset='utf-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='Code centric blogging platform. From developers, for developers.')
-        meta(name='author', content='Michael Wellner and the contributors of pushed.to')
-        title= page_title
-
-        if page_url
-          link(rel='canonical', href=page_url)
-
-        // Bootstrap core CSS
-        link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
-        link(rel='stylesheet', href='/fontawsome/css/all.min.css')
-
-        // App CSS
-        link(rel='stylesheet', href='/css/style.css')
-        link(rel='stylesheet', href='/css/github.css')
+  + head(page_title, page_url)
 
   body.pt
-    nav.navbar.navbar-expand-md.navbar-dark.fixed-top
-      .container
-        a.navbar-brand.pt-brand(href=page_brand_url)
-          | pushed.to
-          span= page_subtitle
-        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Toggle navigation')
-          span.navbar-toggler-icon
-        #navbarCollapse.collapse.navbar-collapse
-          .mr-auto
-          ul.navbar-nav
-            li.nav-item
-              a.nav-link(href='/home#about') About
-            li.nav-item
-              a.nav-link(href='/home#getting-started') Getting Started
+    + navbar(page_brand_url, page_subtitle)
     
     main.container.pt-main(role='main')
       block page_content
       
-    footer.text-muted.pt-footer
-      .container
-        .row
-          .col-sm-3
-            a.navbar-brand.pt-brand(href='#') pushed.to
-            p Code centric blogging. From developers, for developers.
-          .col-sm-3
-            span.navbar-brand.pt-brand Links
-            ul
-              li
-                a(href='https://github.com/cokeSchlumpf/pushed.to') GitHub
-              li
-                a(href='https://github.com/cokeSchlumpf/pushed.to/issues/new') Open an issue
-              li
-                a(href='/home#getting-started') Getting Started
-              li
-                a(href='/home#about') About
-          .col-sm-6
-            span.navbar-brand.pt-brand
-            p
-              | Crafted since 2016. Designed and coded with love and enthusiasm by 
-              a(href='https://github.com/cokeSchlumpf/pushed.to/graphs/contributors', target='_blank') pushed.to contributors
-              | . Content of blogs is owned by authors.
-    script(src='/bootstrap/js/bootstrap.bundle.min.js', crossorigin='anonymous')
+    + footer

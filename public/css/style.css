@@ -169,3 +169,58 @@
     color: #eee;
     text-decoration: none;
 }
+
+.pt .pt-home-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 6rem 0 3rem;
+    margin-bottom: 3rem;
+}
+
+.pt .pt-home-header h1 {
+    margin-bottom: 2rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+}
+
+.pt .pt-home-header p,
+.pt .pt-home-header ul,
+.pt .pt-home-header ul li {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.pt .pt-home-header p b,
+.pt .pt-home-header ul b,
+.pt .pt-home-header ul li b {
+    font-weight: 600;
+}
+
+.pt .pt-home-header p span.pt-home-url {
+    background-color: #0353a4;
+    display: inline-block;
+    padding: 0 0.5em;
+    border-radius: 0.5em;
+    white-space: nowrap;
+}
+
+.pt .pt-home-content {
+    font-size: 1.25rem;
+    padding-bottom: 3rem;
+}
+
+.pt .pt-home-separator {
+    border-bottom: 2px solid #007bff;
+    margin-bottom: 3rem;
+}
+
+.pt .pt-home-content h2 {
+    margin-bottom: 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+}
+
+.pt .pt-home-about {
+    background-color: #ddd;
+    padding-top: 3rem;
+}

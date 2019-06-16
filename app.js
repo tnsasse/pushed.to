@@ -36,11 +36,15 @@ app.use('/api/graphql', expressGraphQL(req => ({
 // static content
 app.use(express.static(path.join(__dirname, 'public')));
 
+// redirection for legacy content
+app.use('/blogs', (req, res) => {
+  res.redirect(req.url);
+})
+
 app.use('/api/github', githubRouter);
 app.use('/api/blog', blogAPIRouter);
 
 app.use('/', indexRouter);
-
 app.use('/', blogRouter);
 
 // catch 404 and forward to error handler
