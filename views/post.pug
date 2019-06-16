@@ -29,12 +29,12 @@ block page_content
           div.pt-article-disqus
             script
               | var disqus_config = function () {
-              |   this.page.url = "//pushed.to#{post.link}";
+              |   this.page.url = "http://pushed.to#{post.link}";
               |   this.page.identifier = "#{post.key}";
               | };
               | (function() { // DON'T EDIT BELOW THIS LINE
               |   var d = document, s = d.createElement('script');
-              |   s.src = '//rethinkit.disqus.com/embed.js';
+              |   s.src = 'https://pushed-to.disqus.com/embed.js';
               |   s.setAttribute('data-timestamp', +new Date());
               |   (d.head || d.body).appendChild(s);
               | })();

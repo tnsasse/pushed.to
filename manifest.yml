@@ -1,0 +1,12 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  routes: 
+    - route: www.pushed.to
+    - route: gh-blog.mybluemix.net
+  name: pushed-to
+  disk_quota: 1024M
+  env:
+    GH_CLIENT_ID: ${GH_CLIENT_ID}
+    GH_CLIENT_SECRET: ${GH_CLIENT_SECRET}
