@@ -47,6 +47,9 @@ const BlogType = new ObjectType({
     topics: {
       type: List(StringType)
     },
+    analyticsId: {
+      type: StringType
+    },
     url: {
       type: new NonNull(StringType)
     },

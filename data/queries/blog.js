@@ -7,6 +7,7 @@ module.exports = (owner, repo) => s.stripMargin(
     |    description,
     |    topics,
     |    url,
+    |    analyticsId,
     |    baseUrl,
     |    user,
     |    repo,
