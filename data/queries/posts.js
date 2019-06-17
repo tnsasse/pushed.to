@@ -26,7 +26,5 @@ module.exports = (owner, project, page = 1, topic = undefined) => {
         |  }
         }`);
 
-    console.log(query);
-
     return query;
 };

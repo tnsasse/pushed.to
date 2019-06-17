@@ -66,6 +66,15 @@ router.use('/:user/:project/render', (req, res) => {
         });
 });
 
+router.use('/:user/:project/base64', (req, res) => {
+    github
+        .getRawFile(req.params.user, req.params.project, req.url.substr(1))
+        .then(response => {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(response);
+        });
+});
+
 router.get('/:user', (req, res) => {
     github
         .getUserData(req.params.user)

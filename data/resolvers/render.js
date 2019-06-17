@@ -43,7 +43,6 @@ const render = {
         const query = Base64.decode(queryEncoded);
         return Query(query);
       })), (templates, results) => {
-        console.log("HUHUU")
         const data = _.reduce(results, (collect, result) => {
           return _.assign({}, collect, result.data);
         }, {});

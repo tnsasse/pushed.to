@@ -136,6 +136,12 @@ function getText(owner, repo, sha) {
   });
 }
 
+function getBytes(owner, repo, sha) {
+  return getBlob(owner, repo, sha).then(response => {
+    return Buffer.from(response.content, 'base64');
+  });
+}
+
 function getTextFile(owner, repo, path, defaultContent) {
   return getFile(owner, repo, path).then(blob => {
     if (!blob && defaultContent) {
@@ -145,6 +151,18 @@ function getTextFile(owner, repo, path, defaultContent) {
     }
 
     return getText(owner, repo, blob.sha);
+  });
+}
+
+function getRawFile(owner, repo, path) {
+  return getFile(owner, repo, path).then(blob => {
+    if (!blob) {
+      return defaultContent;
+    } else if (!blob) {
+      throw new Error(`${path} does not exist in ${owner}/${repo}.`);
+    }
+
+    return getBytes(owner, repo, blob.sha);
   });
 }
 
@@ -255,11 +273,13 @@ function renderMarkdown(owner, repo, id, text, mode) {
 
 module.exports = {
     getBlob: getBlob,
+    getBytes: getBytes,
     getCommit: getCommit,
     getCommits: getCommits,
     getFile: getFile,
     getText: getText,
     getTextFile: getTextFile,
+    getRawFile: getRawFile,
     getRepoTree: getRepoTree,
     getUserData: getUserData,
     renderMarkdown: renderMarkdown

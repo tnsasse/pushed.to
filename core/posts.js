@@ -1,4 +1,5 @@
 var _ = require('lodash');
+const path = require('path');
 var Moment = require('moment');
 var Promise = require('bluebird');
 var git = require('./github');
@@ -50,9 +51,12 @@ var renderPost = (owner, repo, post) => {
       content: content
     }
   }).then((post) => {
+    contentSnippet = path.normalize(post.contentSnippet.replace(/(?:!\[(.*?)\]\((\..*?)\))/g, `![$1](/${owner}/${repo}/posts/${post.key}/../$2)`));
+    content = path.normalize(post.content.replace(/(?:!\[(.*?)\]\((\..*?)\))/g, `![$1](/${owner}/${repo}/posts/${post.key}/../$2)`));
+
     return Promise.join(
-      renderMarkdown(owner, repo, `${post.key}-snippet`, post.contentSnippet),
-      renderMarkdown(owner, repo, `${post.key}-content`, post.content),
+      renderMarkdown(owner, repo, `${post.key}-snippet`, contentSnippet),
+      renderMarkdown(owner, repo, `${post.key}-content`, content),
       function(contentSnippet, content) {
         return _.assign({}, post, {
           content: content,

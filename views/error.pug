@@ -7,4 +7,5 @@ block page_parameters
 block page_content
   h1 ¯\_(ツ)_/¯  #{error.status} #{message}
   p 
-  pre #{error.stack}
+  if error && error.stack
+    pre #{error.stack}
