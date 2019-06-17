@@ -13,6 +13,23 @@ mixin head(page_title, page_url)
         link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
         link(rel='stylesheet', href='/fontawsome/css/all.min.css')
 
+        // Cookieconsent
+        link(rel="stylesheet" href="/cookieconsent/style.min.css")
+        script(src="/cookieconsent/cookieconsent.min.js")
+
+        script
+          | window.addEventListener("load", function(){
+          | window.cookieconsent.initialise({
+          |   "palette": {
+          |     "popup": {
+          |       "background": "#333"
+          |     },
+          |     "button": {
+          |       "background": "#007bff"
+          |     }
+          |   }
+          | })});
+
         // App CSS
         link(rel='stylesheet', href='/css/style.css')
         link(rel='stylesheet', href='/css/github.css')
