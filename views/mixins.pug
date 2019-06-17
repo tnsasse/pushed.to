@@ -1,9 +1,9 @@
-mixin head(page_title, page_url)
+mixin head(page_title, page_url, page_author, page_description)
     head
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='Code centric blogging platform. From developers, for developers.')
-        meta(name='author', content='Michael Wellner and the contributors of pushed.to')
+        meta(name='description', content=page_description || 'Code centric blogging platform. From developers, for developers.')
+        meta(name='author', content=page_author || 'Michael Wellner and the contributors of pushed.to')
         title= page_title
 
         if page_url

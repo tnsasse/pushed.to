@@ -8,6 +8,7 @@ const schema = require('../data/schema');
 const blogQuery = require('../data/queries/blog');
 const postsQuery = require('../data/queries/posts');
 const postQuery = require('../data/queries/post');
+const getFile = require('../core/github').getFile;
 
 router.get('/:user/:project', (req, res) => {
     Promise
@@ -72,25 +73,35 @@ router.get('/:user/:project/topics/:topic/:page', (req, res) => {
 })
 
 router.use('/:user/:project/posts', (req, res) => {
-    if (!_.endsWith(req.url,  '.md')) {
-      req.url = req.url + '.md';
-    }
+    if (_.endsWith(req.url, '.png')) {
 
-    Promise
-      .all(
-          [ 
-            graphql(schema, blogQuery(req.params.user, req.params.project)),
-            graphql(schema, postQuery(req.params.user, req.params.project, req.url.substr(1)))
-          ])
-      .then(responses => {
-          res.locals.blog = responses[0].data.blog;
-          res.locals.post = responses[1].data.post;
-          res.locals.posts = {
-            posts: []
-          };
-          
-          res.render('post');
-      });
+    } else if (_.endsWith(req.url, '.jpg') || _.endsWith(req.url, '.jpeg')) {
+
+    } else if (_.endsWith(req.url, '.gif')) {
+
+    } else if (_.endsWith(req.url, '.bmp')) {
+
+    } else {
+      if (!_.endsWith(req.url,  '.md')) {
+        req.url = req.url + '.md';
+      }
+
+      Promise
+        .all(
+            [ 
+              graphql(schema, blogQuery(req.params.user, req.params.project)),
+              graphql(schema, postQuery(req.params.user, req.params.project, req.url.substr(1)))
+            ])
+        .then(responses => {
+            res.locals.blog = responses[0].data.blog;
+            res.locals.post = responses[1].data.post;
+            res.locals.posts = {
+              posts: []
+            };
+            
+            res.render('post');
+        });
+    }
 })
 
 module.exports = router;

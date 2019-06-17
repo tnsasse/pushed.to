@@ -5,7 +5,7 @@ include mixins
 block page_parameters
 
 html(lang='en')
-  + head(page_title, page_url)
+  + head(page_title, page_url, page_author, page_description)
 
   body.pt
     + navbar(page_brand_url, page_subtitle)
