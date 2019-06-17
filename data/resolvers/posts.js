@@ -30,9 +30,12 @@ const posts = {
     }
   },
 
-  resolve(request, {owner, repo, page}) {
+  resolve(request, {owner, repo, page, topic}) {
     if (!page)
       page = 1;
+
+    console.log("HUHUUU");
+    console.log(topic);
 
     return getRepoTree(owner, repo).then(({tree}) => {
       const result = _(tree)
@@ -44,16 +47,37 @@ const posts = {
         return renderPost(owner, repo, post);
       });
     }).all().then(posts => {
+      console.log(posts.length)
+      console.log(topic);
+
+      if (topic) {
+        return _.filter(posts, post => _.indexOf(post.topics, topic) > -1)
+      } else {
+        return posts;
+      }
+    }).all().then(posts => {
       return getTextFile(owner, repo, '.blog').then(pConfig => {
         const config = JSON.parse(pConfig);
         const ppp = pConfig.postPerPage || 3;
         const pages = Math.ceil(posts.length / ppp);
+
+        let nextUrl;
+        let prevUrl;
+
+        if (topic) {
+          nextUrl = page < pages && `/${owner}/${repo}/topics/${topic}/${page + 1}`;
+          prevUrl = page > 1 && `/${owner}/${repo}/topics/${topic}/${page - 1}`;
+        } else {
+          nextUrl = page < pages && `/${owner}/${repo}/posts/${page + 1}`;
+          prevUrl = page > 1 && `/${owner}/${repo}/posts/${page - 1}`;
+        }
+
         return {
           posts: _.slice(_.orderBy(posts, ['publishedTime'], ['desc']), (page - 1) * ppp, page * ppp),
           pages: pages,
           page: page,
-          nextUrl: page < pages && `/${owner}/${repo}/history/${page + 1}`,
-          prevUrl: page > 1 && `/${owner}/${repo}/history/${page - 1}`
+          nextUrl, 
+          prevUrl
         }
       });
     });

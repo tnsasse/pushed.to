@@ -32,6 +32,13 @@
     margin-bottom: 2rem;
 }
 
+.pt .pt-blog-header a.pt-blog-home h1,
+.pt .pt-blog-header a.pt-blog-home:hover h1,
+.pt .pt-blog-header a.pt-blog-home:hover {
+    color: #212529;
+    text-decoration: none;
+}
+
 .pt .pt-main .pt-article {
     padding-bottom: 2rem;
     margin-bottom: 2rem;

@@ -10,15 +10,20 @@ block page_parameters
 
 block page_content
   .pt-blog-header.grid
-    h1= blog.title
+    a.pt-blog-home(href=blog.url)
+      h1= blog.title
     if blog.topics.length > 0
       p
         each topic in blog.topics
-          a.badge.badge-secondary(href=blog.url + '/topics/' + topic + '/1')= '#' + topic
+          if topic == selectedTopic
+            a.badge.badge-primary(href=blog.url)= '#' + topic
+          else 
+            a.badge.badge-secondary(href=blog.url + '/topics/' + topic)= '#' + topic
           | 
 
-    if blog.description
+    if blog.description && blog.description.length > 0
       p.pt-lead= blog.description
+
   .grid
     .row
       .col-sm-8
@@ -31,7 +36,10 @@ block page_content
             if post.topics.length > 0
               p
                 each topic in post.topics
-                  a.badge.badge-secondary(href=blog.url + '/topics/' + topic)= '#' + topic
+                  if topic == selectedTopic
+                    a.badge.badge-primary(href=blog.url)= '#' + topic
+                  else 
+                    a.badge.badge-secondary(href=blog.url + '/topics/' + topic)= '#' + topic
                   | 
 
             div.pt-article-content

@@ -24,7 +24,7 @@ router.get('/:user/:project', (req, res) => {
       });
   });
 
-router.get('/:user/:project/history/:page', (req, res) => {
+router.get('/:user/:project/posts/:page', (req, res) => {
   Promise
       .all(
           [ 
@@ -32,6 +32,38 @@ router.get('/:user/:project/history/:page', (req, res) => {
             graphql(schema, postsQuery(req.params.user, req.params.project, req.params.page))
           ])
       .then(responses => {
+          res.locals.blog = responses[0].data.blog;
+          res.locals.posts = responses[1].data.posts;
+
+          res.render('posts');
+      });
+})
+
+router.get('/:user/:project/topics/:topic', (req, res) => {
+  Promise
+      .all(
+          [ 
+            graphql(schema, blogQuery(req.params.user, req.params.project)),
+            graphql(schema, postsQuery(req.params.user, req.params.project, 1, req.params.topic))
+          ])
+      .then(responses => {
+        res.locals.selectedTopic = req.params.topic;
+        res.locals.blog = responses[0].data.blog;
+        res.locals.posts = responses[1].data.posts;
+
+        res.render('posts');
+      });
+})
+
+router.get('/:user/:project/topics/:topic/:page', (req, res) => {
+  Promise
+      .all(
+          [ 
+            graphql(schema, blogQuery(req.params.user, req.params.project)),
+            graphql(schema, postsQuery(req.params.user, req.params.project, req.params.page, req.params.topic))
+          ])
+      .then(responses => {
+          res.locals.selectedTopic = req.params.topic;
           res.locals.blog = responses[0].data.blog;
           res.locals.posts = responses[1].data.posts;
 
