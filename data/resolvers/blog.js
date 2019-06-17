@@ -29,11 +29,14 @@ const blog = {
       getUserData(owner),
       getTextFile(owner, repo, '.blog'),
       ({tree}, user, pConfig) => {
+        
         const config = JSON.parse(pConfig);
 
         return Promise.all(_.map(_.filter(tree, file => _.endsWith(file.path, '.css')), style => getTextFile(owner, repo, style.path))).then(styles => {
           return {
             title: config.title,
+            description: config.description,
+            topics: _.get(config, 'topics', []),
             url: `/${owner}/${repo}`,
             baseUrl: `/`,
             user: owner,
@@ -44,7 +47,8 @@ const blog = {
               company: user.company,
               url: user.blog,
               avatar: user.avatar_url,
-              twitter: config.twitter,
+              twitter: _.get(config, 'social.twitter'),
+              linkedin: _.get(config, 'social.linkedin'),
               github: user.html_url
             }
           };

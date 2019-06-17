@@ -40,27 +40,32 @@ mixin about(blog)
             p.pt-author
                 | by 
                 b= blog.owner.name
-            if blog.owner.locaction
-                p.pt-origin blog.owner.locaction
+
+            if blog.owner.location
+                p.pt-origin= blog.owner.location
             
             if blog.owner.url
                 p.pt-web
                     a(href=blog.owner.url, title=blog.owner.name, target='_blank')= blog.owner.url
+            
             ul.pt-social
                 if blog.owner.twitter
-                    li
-                        a(href='https://twitter.com/' + blog.owner.twitter, title='Follow me on Twitter', target='_blank')
-                            i.fab.fa-twitter
-                    li
+                  li
+                    a(href='https://twitter.com/' + blog.owner.twitter, title='Follow me on Twitter', target='_blank')
+                      i.fab.fa-twitter
+                  li
+
+                if blog.owner.linkedin
+                  li
+                    a(href=blog.owner.linkedin, title='Connect on LinkedIn', target='_blank')
+                      i.fab.fa-linkedin
+
                 if blog.owner.github
-                    li 
-                        a(href=blog.owner.github, title='Visit me on Github', target='_blank')
-                            i.fab.fa-github
+                  li 
+                    a(href=blog.owner.github, title='Visit me on Github', target='_blank')
+                      i.fab.fa-github
 
         .pt-static-links
-            a.badge.badge-secondary(href='#') About Me
-            | 
-            a.badge.badge-secondary(href='#') Foo Bar
 
 mixin footer
     footer.text-muted.pt-footer
@@ -86,6 +91,6 @@ mixin footer
               | Crafted since 2016. Designed and coded with love and enthusiasm by 
               a(href='https://github.com/cokeSchlumpf/pushed.to/graphs/contributors', target='_blank') pushed.to contributors
               | . Content of blogs is owned by authors.
-              
+
     script(src='/bootstrap/js/jquery-3.3.1.slim.min.js', crossorigin='anonymous')
     script(src='/bootstrap/js/bootstrap.bundle.min.js', crossorigin='anonymous')

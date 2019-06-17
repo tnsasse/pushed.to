@@ -13,6 +13,22 @@ var renderPost = (owner, repo, post) => {
     const commit = _.last(pCommits);
 
     let content = _.trim(pContent.substr(pContent.indexOf('\n') + 1), '\n');
+    let topics = [];
+
+    let topicsStart = content.indexOf("\n\n```topics");
+    if (topicsStart > -1) {
+      let offset = 11;
+      let topicsEnd = content.indexOf("```\n\n", topicsStart + offset)
+
+      if (topicsStart > -1 && topicsEnd > -1) {
+        topics = _.map(
+          _.split(_.trim(content.substr(topicsStart + offset, topicsEnd - (topicsStart + offset))), ","), 
+          topic => _.trim(topic));
+
+        content = content.substr(0, topicsStart) + content.substr(topicsEnd + 5);
+      }
+    }
+
     let contentSnippet = content;
     let split = content.indexOf('---');
 
@@ -24,6 +40,7 @@ var renderPost = (owner, repo, post) => {
     return {
       key: post.path,
       title: _.trim(_.trimStart(_.head(_.split(pContent, '\n')), '#')),
+      topics: topics,
       link: `/${owner}/${repo}/posts/${post.path}`,
       author: commit.commit.author.name,
       publishedDate: Moment(new Date(commit.commit.author.date)).format(pConfig.dateFormat || 'MMMM DD, YYYY'),

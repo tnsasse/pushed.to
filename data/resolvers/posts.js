@@ -24,6 +24,9 @@ const posts = {
     },
     page: {
       type: IntType
+    },
+    topic: {
+      type: StringType
     }
   },
 

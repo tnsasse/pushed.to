@@ -36,7 +36,6 @@ const render = {
   },
 
   resolve(request, {owner, repo, queries, templates, selects}) {
-    console.log('huhuuu');
 
     return Promise.join(
       Promise.all(_.map(templates, file => getTextFile(owner, repo, file))),

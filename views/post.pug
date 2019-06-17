@@ -17,10 +17,11 @@ block page_content
 
           p.pt-meta Posted on #{post.publishedDate}           
 
-          p
-            a.badge.badge-secondary(href='#') #topic-1
-            | 
-            a.badge.badge-secondary(href='#') #topic-2
+          if post.topics.length > 0
+            p
+              each topic in post.topics
+                a.badge.badge-secondary(href=blog.url + '/topics/' + topic)= '#' + topic
+                | 
 
           div.pt-article-content
             != post.contentSnippet

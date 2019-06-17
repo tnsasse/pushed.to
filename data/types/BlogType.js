@@ -26,6 +26,9 @@ const OwnerType = new ObjectType({
     twitter: {
       type: StringType
     },
+    linkedin: {
+      type: StringType
+    },
     github: {
       type: new NonNull(StringType)
     }
@@ -37,6 +40,12 @@ const BlogType = new ObjectType({
   fields: {
     title: {
       type: new NonNull(StringType)
+    },
+    description: {
+      type: StringType
+    },
+    topics: {
+      type: List(StringType)
     },
     url: {
       type: new NonNull(StringType)

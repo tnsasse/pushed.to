@@ -4,6 +4,8 @@ module.exports = (owner, repo) => s.stripMargin(
     `{
     |  blog(owner: "${owner}", repo: "${repo}") {
     |    title,
+    |    description,
+    |    topics,
     |    url,
     |    baseUrl,
     |    user,
@@ -15,6 +17,7 @@ module.exports = (owner, repo) => s.stripMargin(
     |      location,
     |      avatar,
     |      twitter,
+    |      linkedin,
     |      github
     |    }
     |  }

@@ -21,7 +21,7 @@ const post = {
     },
     key: {
       type: new NonNull(StringType)
-    },
+    }
   },
 
   resolve(request, {owner, repo, key}) {

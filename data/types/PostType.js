@@ -15,6 +15,9 @@ const PostType = new ObjectType({
     title: {
       type: new NonNull(StringType)
     },
+    topics: {
+      type: List(StringType)
+    },
     link: {
       type: new NonNull(StringType)
     },

@@ -6,6 +6,7 @@ module.exports = (owner, project, page = 1) => s.stripMargin(
     |    posts {
     |      key,
     |      title,
+    |      topics,
     |      link,
     |      author,
     |      publishedDate,
