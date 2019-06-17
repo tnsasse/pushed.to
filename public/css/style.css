@@ -45,6 +45,11 @@
     border-bottom: 1px solid #666;
 }
 
+.pt .pt-main .pt-article h2 a {
+    color: #212529;
+    text-decoration: none;
+}
+
 .pt .pt-main .pt-article .pt-meta {
     color: #666;
 }
