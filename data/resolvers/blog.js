@@ -39,6 +39,7 @@ const blog = {
             topics: _.get(config, 'topics', []),
             url: `/${owner}/${repo}`,
             analyticsId: config.analyticsId,
+            disqusId: config.disqusId,
             baseUrl: `/`,
             user: owner,
             repo: repo,

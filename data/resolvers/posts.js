@@ -34,9 +34,6 @@ const posts = {
     if (!page)
       page = 1;
 
-    console.log("HUHUUU");
-    console.log(topic);
-
     return getRepoTree(owner, repo).then(({tree}) => {
       const result = _(tree)
         .filter(item => _.endsWith(item.path, '.md') && item.type === 'blob' && !_.endsWith(item.path, 'README.md'))
@@ -47,9 +44,6 @@ const posts = {
         return renderPost(owner, repo, post);
       });
     }).all().then(posts => {
-      console.log(posts.length)
-      console.log(topic);
-
       if (topic) {
         return _.filter(posts, post => _.indexOf(post.topics, topic) > -1)
       } else {

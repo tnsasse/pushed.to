@@ -131,7 +131,7 @@ mixin footer(blogAnalyticsId)
       | ga('create', 'UA-2075101-7', 'auto');
       | ga('send', 'pageview');
 
-    if blogAnalyticsId
+    if blogAnalyticsId && blogAnalyticsId != 'UA-2075101-7'
       script
         | ga('create', '#{blogAnalyticsId}', 'auto', 'blog');
         | ga('blog.send', 'pageview');

@@ -50,6 +50,9 @@ const BlogType = new ObjectType({
     analyticsId: {
       type: StringType
     },
+    disqusId: {
+      type: StringType
+    },
     url: {
       type: new NonNull(StringType)
     },

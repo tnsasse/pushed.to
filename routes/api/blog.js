@@ -39,8 +39,6 @@ router.get('/:user/:project/posts/:page', (req, res) => {
 router.use('/:user/:project/post', (req, res) => {
     const query = postQuery(req.params.user, req.params.project, req.url.substr(1));
 
-    console.log(query);
-
     graphql(schema, query).then(response => {
         res.send(response);
     });

@@ -8,6 +8,7 @@ module.exports = (owner, repo) => s.stripMargin(
     |    topics,
     |    url,
     |    analyticsId,
+    |    disqusId,
     |    baseUrl,
     |    user,
     |    repo,
