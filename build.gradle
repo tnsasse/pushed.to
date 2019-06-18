@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+plugins {
+    id 'application'
+    id 'scala'
+    id 'com.github.johnrengelman.shadow' version '5.0.0'
+}
+
+dependencies {
+    compile group: 'org.scala-lang', name: 'scala-library', version: '2.12.8'
+    
+    compile group: 'com.typesafe.akka', name: 'akka-http_2.12', version: '10.1.8'
+    compile group: 'com.typesafe.akka', name: 'akka-stream_2.12', version: '2.5.23'
+    
+    // Use Scalatest for testing our library
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.scalatest:scalatest_2.12:3.0.5'
+
+    // Need scala-xml at test runtime
+    testRuntime 'org.scala-lang.modules:scala-xml_2.12:1.1.0'
+}
+
+repositories {
+    jcenter()
+}
+
+mainClassName='pushedto.Application'
+
+shadowJar {
+    archivesBaseName = 'pushedto'
+    version = null
+
+    archiveClassifier.set(null)
+
+    conventionMapping.with {
+        map('classifier') {
+            null
+        }
+    }
+}
+
+tasks.build.dependsOn tasks.shadowJar
