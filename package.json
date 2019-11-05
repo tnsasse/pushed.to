@@ -2,11 +2,11 @@
   "name": "pushed-to",
   "version": "0.0.0",
   "private": true,
-  "main": "bin/main/app.js",
+  "main": "bin/app.js",
   "scripts": {
     "start": "node --inspect=5858 -r ts-node/register ./src/main/app.ts",
     "start:watch": "nodemon",
-    "build": "tsc"
+    "build": "tsc && cp -R src/main/public bin/ && cp -R src/main/views bin/"
   },
   "dependencies": {
     "@octokit/rest": "^16.27.3",

@@ -8,6 +8,7 @@ node_js:
 - '10'
 
 script:
+- npm run build
 - sed -i "s/\${GH_CLIENT_ID}/${GH_CLIENT_ID}/" manifest.yml
 - sed -i "s/\${GH_CLIENT_SECRET}/${GH_CLIENT_SECRET}/" manifest.yml
 - cat manifest.yml
