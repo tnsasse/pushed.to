@@ -14,6 +14,11 @@ export class API {
         private readonly git: GitHubRepositories) {
     }
 
+    async initialize(): Promise<void> {
+        const blogs = await this.blogs.initialBlogs();
+        return this.fetchBlogs(blogs);
+    }
+
     async exists(username: string, repository: string): Promise<boolean> {
         return this.git.getTextFile(username, repository, '.blog')
             .then(config => true)
@@ -70,6 +75,31 @@ export class API {
         }
 
         return Promise.resolve();
+    }
+
+    async fetchAll(): Promise<void> {
+        const blogs = await this.blogs.allBlogs();
+        return this.fetchBlogs(blogs);
+    }
+
+    private async fetchBlogs(blogs: Array<{username: string, repository: string}>): Promise<void> {
+        if (blogs.length == 0) {
+            return Promise.resolve();
+        } else {
+            const blog = _.head(blogs);
+            const exists = await this.exists(blog.username, blog.repository)
+
+            if (!exists) {
+                await this.blogs.removeBlog(blog.username, blog.repository);
+                console.log(`Removed blog ${blog.username}/${blog.repository} ...`);
+            } else {
+                console.log(`Fetching blog ${blog.username}/${blog.repository} ...`);
+                await this.fetch(blog.username, blog.repository);
+                console.log(`Fetched blog ${blog.username}/${blog.repository} ...`);
+            }
+
+            return this.fetchBlogs(_.tail(blogs));
+        }
     }
 
     async post(username: string, repository: string, post: string): Promise<BlogPostViewModel> {

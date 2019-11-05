@@ -14,6 +14,19 @@ export class InMemoryBlogRepository implements BlogRepository {
         this.fetching = [];
     }
 
+    private asObj(id: string): { username: string, repository: string } {
+        const values = _.split(id, '/');
+        return { username: values[0], repository: values[1] };
+    }
+
+    allBlogs(): Promise<Array<{ username: string, repository: string}>> {
+        return Promise.resolve(_.map(Array.from(this.blogs.keys()), this.asObj));
+    }
+
+    initialBlogs(): Promise<Array<{ username: string, repository: string}>> {
+        return Promise.resolve([ { username: 'cokeSchlumpf', repository: 'rethink-it' }, { username: 'cokeSchlumpf', repository: 'doo'} ]);
+    }
+
     isFetching(username: string, repository: string): Promise<boolean> {
         if (_.indexOf(this.fetching, `${username}/${repository}`) > -1) {
             return Promise.resolve(true);
@@ -41,6 +54,11 @@ export class InMemoryBlogRepository implements BlogRepository {
 
     markFetched(username: string, repository: string): Promise<void> {
         this.fetching = _.filter(this.fetching, key => key !== `${username}/${repository}`);
+        return Promise.resolve();
+    }
+
+    removeBlog(username: string, repository: string): Promise<void> {
+        this.blogs.delete(`${username}/${repository}`)
         return Promise.resolve();
     }
     

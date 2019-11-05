@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import cron from 'cron';
 import express from 'express';
 import path from 'path';
 
@@ -141,5 +142,12 @@ router.get('/:user/:repository/posts/:page', withErrorHandler(viewPosts));
 router.get('/:user/:repository/topics/:topic', withErrorHandler(viewPosts));
 router.get('/:user/:repository/topics/:topic/:page', withErrorHandler(viewPosts));
 router.use('/:user/:repository/posts', withErrorHandler(viewPost));
+
+new cron.CronJob('*/15 * * * *', function() {
+    console.log("Update blogs ...")
+    api.fetchAll();
+}, null, true);
+
+api.initialize();
 
 export default router;
