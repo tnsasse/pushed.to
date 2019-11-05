@@ -1,8 +1,8 @@
 # pushed.to
 
-A free &amp; open, code centric blogging platform: Write posts with Markdown. Push your blog to a GitHub repository. View and share your wisdom via `pushed.to/&lt;username&gt;/&lt;repo&gt;`
+A free &amp; open, code centric blogging platform: Write posts with Markdown. Push your blog to a GitHub repository. View and share your wisdom via `pushed.to/<username>/<repo>`
 
-Visit [pushed.to](http://pushed.to) for more details.
+Visit [pushed.to](http://pushed.to) for more details, or view the [sample blog](http://pushed.to/cokeSchlumpf/rethink-it).
 
 ## Contribute
 
