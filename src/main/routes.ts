@@ -39,6 +39,11 @@ const withErrorHandler = (promise: (req: express.Request, res: express.Response,
     });
 }
 
+async function blogs(req: express.Request, res: express.Response): Promise<void> {
+    const blogs = await blogRepository.allBlogs();
+    res.json(blogs);
+}
+
 function updateProject(req: express.Request, res: express.Response): Promise<void> {
     api.fetch(req.params.user, req.params.repository);
     res.sendStatus(200);
@@ -136,6 +141,7 @@ async function viewPosts(req: express.Request, res: express.Response, next: expr
 
 const router = express.Router();
 router.get('/', (_, res) => res.render('index'));
+router.get('/api/blogs', blogs);
 router.get('/:user/:repository/update', withErrorHandler(updateProject));
 router.get('/:user/:repository', withErrorHandler(viewPosts));
 router.get('/:user/:repository/posts/:page', withErrorHandler(viewPosts));
