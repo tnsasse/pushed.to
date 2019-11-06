@@ -9,6 +9,26 @@ import routes from './routes';
 const debug = require('debug')('pushed-to:server');
 const app = express();
 
+/*
+ * Enable 'x-forward' headers, etc.
+ */
+app.enable('trust proxy');
+
+/*
+ * Force usage of HTTPS
+ */
+if (process.env.USE_HTTPS) {
+    console.log("Enable secure-only access ...")
+    
+    app.use ((req, res, next) => {
+        if (req.secure) {
+            next();
+        } else {
+            res.redirect('https://' + req.headers.host + req.url);
+        }
+    });
+}
+
 /** 
  * Set view engine to PUG
  */
