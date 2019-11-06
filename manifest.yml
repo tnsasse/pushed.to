@@ -3,6 +3,7 @@ applications:
   memory: 256M
   instances: 1
   routes: 
+    - route: pushed.to
     - route: www.pushed.to
     - route: gh-blog.mybluemix.net
   name: pushed-to
