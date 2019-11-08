@@ -116,8 +116,7 @@ async function viewPosts(req: express.Request, res: express.Response, next: expr
         const posts = _.map(vm.posts, post => {
             const link = `/${user}/${repository}/posts/${post.id}`;
             
-            let contentSnippet = post.contentSnippet.replace(/href="([\.].+)"/g, path.normalize(`href="/${user}/${repository}/posts/${post.id}/../$1"`));
-            contentSnippet = contentSnippet.replace(/src="([\.].+)"/g, path.normalize(`src="/${user}/${repository}/posts/${post.id}/../$1"`));
+            let contentSnippet = post.contentSnippet.replace(/="([\.].+)"/g, path.normalize(`="/${user}/${repository}/posts/${post.id}/../$1"`));
 
             return _.assign({}, post, { contentSnippet, link });
         });
