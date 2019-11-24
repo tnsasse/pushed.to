@@ -5,10 +5,11 @@ import { Blog } from '../entities/Blog';
 import { BlogPost } from '../entities/BlogPost';
 import { GitHubRepositories } from '../ports/GitHubRepositories';
 
-function getTopics(content: string): { topics: Array<string>, content: string } {
+function processContent(content: string): { topics: Array<string>, content: string } {
   let allLines: Array<string> = content.split("\n");
   let finalLines: Array<string> = [];
   let inTopics: boolean = false;
+  let inCodeBlock: boolean = false;
   let topics: Array<string> = [];
 
   _.forEach(allLines, line => {
@@ -22,6 +23,11 @@ function getTopics(content: string): { topics: Array<string>, content: string } 
     } else {
       if (line.startsWith("```topics")) {
         inTopics = true;
+      } else if (line.startsWith("```")) {
+        inCodeBlock = !inCodeBlock;
+        finalLines.push(line);
+      } else if (line.startsWith('#') && !inCodeBlock) {
+        finalLines.push('#' + line)
       } else {
         finalLines.push(line);
       }
@@ -53,7 +59,7 @@ export default async (owner: string, repo: string, post: any, git: GitHubReposit
     const commit = _.last(commits);
 
     const text = _.trim(postText.substr(postText.indexOf('\n') + 1), '\n');
-    const { topics, ...remainingFromTopics } = getTopics(text);
+    const { topics, ...remainingFromTopics } = processContent(text);
     const { content, contentSnippet } = splitContentAndSnippet(owner, repo, post.path, remainingFromTopics.content);
 
     const contentRendered = await git.renderMarkdown(owner, repo, content);
