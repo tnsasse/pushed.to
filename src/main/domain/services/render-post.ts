@@ -6,23 +6,29 @@ import { BlogPost } from '../entities/BlogPost';
 import { GitHubRepositories } from '../ports/GitHubRepositories';
 
 function getTopics(content: string): { topics: Array<string>, content: string } {
-    let topics: Array<string> = [];
-    let topicsStart = content.indexOf("\n\n```topics");
+  let allLines: Array<string> = content.split("\n");
+  let finalLines: Array<string> = [];
+  let inTopics: boolean = false;
+  let topics: Array<string> = [];
 
-    if (topicsStart > -1) {
-      let offset = 11;
-      let topicsEnd = content.indexOf("```\n\n", topicsStart + offset)
-
-      if (topicsStart > -1 && topicsEnd > -1) {
-        topics = _.map(
-          _.split(_.trim(content.substr(topicsStart + offset, topicsEnd - (topicsStart + offset))), ","), 
-          topic => _.trim(topic));
-
-        content = content.substr(0, topicsStart) + content.substr(topicsEnd + 5);
+  _.forEach(allLines, line => {
+    if (inTopics) {
+      if (line.startsWith("```")) {
+        inTopics = false;
+      } else {
+        const newTopics = _.map(line.split(","), t => t.trim());
+        topics = _.concat(topics, newTopics);
+      }
+    } else {
+      if (line.startsWith("```topics")) {
+        inTopics = true;
+      } else {
+        finalLines.push(line);
       }
     }
+  });
 
-    return { topics, content };
+  return { topics, content: _.join(finalLines, '\n') };
 }
 
 function splitContentAndSnippet(owner: string, repo: string, postId: string, content: string): { content: string, contentSnippet: string } {
