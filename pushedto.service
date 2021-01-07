@@ -1,0 +1,16 @@
+[Unit]
+Description=pushed.to service
+After=syslog.target network.target
+
+[Service]
+EnvironmentFile=/home/pushedto/pushed.to/prod.env
+User=pushedto
+Group=pushedto
+WorkingDirectory=/home/pushedto/pushed.to/
+ExecStart=npm run start:watch
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=pushedto
+
+[Install]
+WantedBy=multi-user.target

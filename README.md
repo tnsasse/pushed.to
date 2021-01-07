@@ -36,3 +36,18 @@ Then you can start your local development server with:
 $ chmod +x dev.sh
 $ ./dev.sh
 ```
+
+### Deploy as a systemd service
+You can use the `pushedto.service` systemd unit file to run the service. It depends on an environment properties file `prod.env` which holds your GitHub client credentials.
+
+The script assumes that pushed.to was checked out to `/home/pushedto` and a user `pushedto` with group `pushedto` exists.
+
+To install the systemd service, use: 
+
+```bash
+$ sudo cp pushedto.service /etc/systemd/system/pushedto.service
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable pushedto
+$ sudo systemctl start pushedto
+$ sudo systemctl status pushedto
+```
